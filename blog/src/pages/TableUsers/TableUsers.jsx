@@ -133,7 +133,7 @@ function Users() {
                   <td>{elemento.telefono}</td>
                   <td>{elemento.role}</td>
                   <td>{new Date(elemento.createdAt).toDateString()}</td>
-                  <td>
+                  <td className='anchooBTN'>
                     <Button
                       color="primary"
                       onClick={() => seleccionarUser(elemento, 'Editar')}

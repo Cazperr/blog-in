@@ -125,7 +125,7 @@ function Posts() {
                   <td>{elemento.categories}</td>
                   <td>{elemento.desc.slice(0, 20)}</td>
                   <td>{new Date(elemento.createdAt).toDateString()}</td>
-                  <td>
+                  <td className='anchooBTN'>
                     <Button
                       color="primary"
                       onClick={() => seleccionarPost(elemento, 'Editar')}
