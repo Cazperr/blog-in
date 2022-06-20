@@ -3,7 +3,7 @@ import Footer from "../components/footer/Footer";
 import ScrollTop from "../components/scrollTop/ScrollTop";
 import NotFoundPage from "../pages/NotFoundPage";
 import Home from "../pages/home/Home";
-import Posts from "../componentshttps://blog-in-serv.herokuapp.com/api/postshttps://blog-in-serv.herokuapp.com/api/posts";
+import Posts from "../components/posts/Posts";
 import Write from "../pages/write/Write";
 import SinglePost from "../components/singlePost/SinglePost";
 import TableUsers from "../pages/TableUsers/TableUsers";
@@ -38,7 +38,7 @@ export default function AppRouter(){
         <Router>
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route exact path="https://blog-in-serv.herokuapp.com/api/posts" element={<PrivateRoute><Posts /></PrivateRoute>} />
+            <Route exact path="/posts" element={<PrivateRoute><Posts /></PrivateRoute>} />
             <Route exact path="/dashboard" element={<PrivateRoute hasRole="admin"><Dashboard /></PrivateRoute>} />
             <Route exact path="/post/:postId" element={<PrivateRoute><SinglePost /></PrivateRoute>} />
             <Route exact path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
