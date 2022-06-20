@@ -8,14 +8,10 @@ const LineChart = () => {
 
 	const [visits, setVisits] = useState([]);
 
-	/*const hexa = () =>{
-		let colorHex = (Math.random() * 0xffffff * 1000000).toString(16);
-		return `#${colorHex.slice(0, 6)}`;
-	}*/
 
 	useEffect(() => {
 		const fetchVisits = async () => {
-			const res = await axios.get("/visitas")
+			const res = await axios.get("https://blog-in-serv.herokuapp.com/api/visitas")
 			setVisits(res.data);
 		}
 		fetchVisits();

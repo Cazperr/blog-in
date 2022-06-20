@@ -11,17 +11,17 @@ const Sidebar = () => {
   const [cats, setCats] = useState([]);
   const { user } = useContext(Context);
   const [posts, setPosts] = useState([]);
-  const PF = "http://localhost:7000/images/";
+  const PF = "https://blog-in-serv.herokuapp.com/images/";
 
 
   useEffect(() => {
     const getCats = async () => {
-      const res = await axios.get("/categories");
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/categories");
       setCats(res.data);
     };
     getCats();
     const fetchPosts = async () => {
-      const res = await axios.get("/posts")
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts")
       setPosts(res.data);
     }
     fetchPosts();

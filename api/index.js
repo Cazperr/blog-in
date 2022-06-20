@@ -41,7 +41,7 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-mongoose.connect(process.env.MONGO_URL,{
+mongoose.connect("mongodb+srv://Jona:Jona@cluster0.nqu0a.mongodb.net/blog?retryWrites=true&w=majority",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
@@ -73,6 +73,6 @@ const storage = multer.diskStorage({
   app.use("/api/usersNuevos", usersNuevosRoute);
 
 
-server.listen(7000, () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log("Server Runnig");
 });

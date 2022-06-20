@@ -7,12 +7,12 @@ import axios from "axios";
 
 
 const Header = () => {
-  const PF = "http://localhost:7000/images/";
+  const PF = "https://blog-in-serv.herokuapp.com/images/";
 
   const [posts,setPosts] = useState([]);
 	useEffect(()=>{
 		const fetchPost = async () =>{
-		  const res = await axios.get("/posts")
+		  const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts")
 		  setPosts(res.data);
 		}
 		fetchPost();

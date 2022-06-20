@@ -49,7 +49,7 @@ const Register = () => {
 
 	useEffect(() => {
 		const fetchUsers = async () => {
-			const res = await axios.get("/users")
+			const res = await axios.get("https://blog-in-serv.herokuapp.com/api/users")
 			setUsers(res.data);
 		}
 		fetchUsers();
@@ -77,7 +77,7 @@ const Register = () => {
 			if (alluser.includes(username)) {
 				setSuccess(true);
 			}else{
-			const res = await axios.post("/auth/register", {
+			const res = await axios.post("https://blog-in-serv.herokuapp.com/api/auth/register", {
 				username,
 				nombre,
 				email,

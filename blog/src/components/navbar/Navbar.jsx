@@ -12,7 +12,7 @@ import axios from "axios";
 
 const Navbar = () => {
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:7000/images/";
+  const PF = "https://blog-in-serv.herokuapp.com/images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -29,7 +29,7 @@ const Navbar = () => {
 
   useEffect(()=>{
     const fetchPost = async () =>{
-      const res = await axios.get("/posts" + search)
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts" + search)
       setPosts(res.data);
     }
     fetchPost();

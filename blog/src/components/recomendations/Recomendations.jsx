@@ -7,11 +7,11 @@ import "./recomendations.css";
 const Recomendations = () => {
 
 	const [posts,setPosts] = useState([]);
-	const PF = "http://localhost:7000/images/";
+	const PF = "https://blog-in-serv.herokuapp.com/images/";
 
 	useEffect(()=>{
 		const fetchPost = async () =>{
-		  const res = await axios.get("/posts")
+		  const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts")
 		  setPosts(res.data);
 		}
 		fetchPost();

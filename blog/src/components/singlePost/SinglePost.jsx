@@ -14,7 +14,7 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2]; // Para coger el id del post
   const [post, setPost] = useState({});
-  const PF = "http://localhost:7000/images/";
+  const PF = "https://blog-in-serv.herokuapp.com/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -23,7 +23,7 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + path);
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -33,7 +33,7 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`, {
+      await axios.delete(`https://blog-in-serv.herokuapp.com/api/posts/${post._id}`, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -53,11 +53,11 @@ export default function SinglePost() {
       data.append("file", file);
       updatePost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://blog-in-serv.herokuapp.com/api/upload", data);
       } catch (err) { console.log(err) }
     }
     try {
-      await axios.put(`/posts/${post._id}`, updatePost);
+      await axios.put(`https://blog-in-serv.herokuapp.com/api/posts/${post._id}`, updatePost);
       setUpdateMode(false)
     } catch (err) { console.log(err) }
   };

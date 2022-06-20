@@ -11,12 +11,12 @@ const Commentario = ({ post }) => {
 
 	useEffect(() => {
 		const fetchComment = async () => {
-			const res = await axios.get("/comments")
+			const res = await axios.get("https://blog-in-serv.herokuapp.com/api/comments")
 			setComment(res.data);
 		}
 		fetchComment();
 	},[setTimeout(1000)] )
-	
+
 	let arrayComment = []
 	comments.map(comm => {
 		if (comm.id_post === post._id) {

@@ -5,12 +5,12 @@ import axios from 'axios';
 
 
 const ChartUsers = () => {
-	
+
 	const [dates, setDates] = useState([]);
 
 	useEffect(() => {
 		const fetchDates = async () => {
-			const res = await axios.get("/users")
+			const res = await axios.get("https://blog-in-serv.herokuapp.com/api/users")
 			setDates(res.data);
 		}
 		fetchDates();
@@ -22,8 +22,8 @@ const ChartUsers = () => {
 	const hoy = new Date().toDateString();
 	const mesNumero = new Date().getMonth();
 	const anoNumero = new Date().getFullYear();
-	
-	
+
+
 	const registradosHoy = datesTotales.filter(datesTotales => datesTotales === hoy);
 	const registradosMes = datesTotales2.filter(datesTotales2 => datesTotales2 === mesNumero);
 	const registradosAño = datesTotales3.filter(datesTotales3 => datesTotales3 === anoNumero);

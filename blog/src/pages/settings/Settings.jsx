@@ -15,11 +15,11 @@ const Settings = () => {
   const [telefono, setTelefono] = useState("");
   const [success, setSuccess] = useState(false);
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:7000/images/"
+  const PF = "https://blog-in-serv.herokuapp.com/images/"
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/users/${user._id}`, {
+      await axios.delete(`https://blog-in-serv.herokuapp.com/api/users/${user._id}`, {
         data: { username: user.username },
       });
       dispatch({ type: "LOGOUT" });
@@ -44,11 +44,11 @@ const Settings = () => {
       data.append("file", file);
       updatedUser.profilePic = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("https://blog-in-serv.herokuapp.com/api/upload", data);
       } catch (err) {console.log(err) }
     }
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("https://blog-in-serv.herokuapp.com/api/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
       setInterval(window.location.reload(),5000);

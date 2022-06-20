@@ -19,11 +19,11 @@ import {
 function Users() {
 
   const [users, setUsers] = useState([]);
-  const PF = "http://localhost:7000/images/"
+  const PF = "https://blog-in-serv.herokuapp.com/images/"
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const res = await axios.get("/users")
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/users")
       setUsers(res.data);
     }
     fetchUsers();
@@ -57,7 +57,7 @@ function Users() {
       });
       setUsers(dataNueva);
 
-      await axios.put(`/user/${userSeleccionado._id}`, {
+      await axios.put(`https://blog-in-serv.herokuapp.com/api/user/${userSeleccionado._id}`, {
         username: userSeleccionado.username,
         nombre: userSeleccionado.nombre,
         email: userSeleccionado.email,
@@ -72,7 +72,7 @@ function Users() {
   const handleDelete = async () => {
     try {
       setUsers(users.filter(user => user._id !== userSeleccionado._id))
-      await axios.delete(`/users/${userSeleccionado._id}`, {
+      await axios.delete(`https://blog-in-serv.herokuapp.com/api/users/${userSeleccionado._id}`, {
         data: { username: userSeleccionado._id },
       })
       setModalEliminar(false);

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 
 export default function NotFoundPage() {
-    const PF = "http://localhost:7000/images/";
+    const PF = "https://blog-in-serv.herokuapp.com/images/";
 	return (
 		<Container style={{ minHeight: '95vh', display: 'flex', alignContent: 'center', alignItems: 'center'}} >
 			<Row className="mt-5">

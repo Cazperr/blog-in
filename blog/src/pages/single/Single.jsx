@@ -11,16 +11,16 @@ const Single = () => {
   const path = location.pathname.split("/")[2];
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
-  const PF = "http://localhost:7000/images/";
+  const PF = "https://blog-in-serv.herokuapp.com/images/";
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("/posts")
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts")
       setPosts(res.data);
     }
     fetchPosts();
     const fetchUsers = async () => {
-      const res = await axios.get("/users")
+      const res = await axios.get("https://blog-in-serv.herokuapp.com/api/users")
       setUsers(res.data);
     }
     fetchUsers();
@@ -36,8 +36,8 @@ const Single = () => {
     }
   }
   });
-   
- 
+
+
   let userPosts = []
 
   posts.map(post => {

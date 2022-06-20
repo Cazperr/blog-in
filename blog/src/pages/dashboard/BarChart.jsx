@@ -8,14 +8,10 @@ const BarChart = () => {
 
 	const [posts, setPosts] = useState([]);
 
-	/*const hexa = () =>{
-		let colorHex = (Math.random() * 0xffffff * 1000000).toString(16);
-		return `#${colorHex.slice(0, 6)}`;
-	}*/
 
 	useEffect(() => {
 		const fetchPosts = async () => {
-			const res = await axios.get("/posts")
+			const res = await axios.get("https://blog-in-serv.herokuapp.com/api/posts")
 			setPosts(res.data);
 		}
 		fetchPosts();

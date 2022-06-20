@@ -17,7 +17,7 @@ const Comments = ({ post }) => {
 			comment
 		};
 		try {
-			await axios.post("/comments", newComment);
+			await axios.post("https://blog-in-serv.herokuapp.com/api/comments", newComment);
 			// console.log("Se ha añadido correctamente")
 			// window.location.reload();
 		} catch (err) { console.log(err) }
